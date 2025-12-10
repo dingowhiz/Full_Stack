@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Analysis Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>📄 Document Analysis Tool</h1>
+            <p class="subtitle">Upload and analyze your documents with ease</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <h2>Drag & Drop Your Document</h2>
+                <p>or</p>
+                <label for="fileInput" class="file-label">
+                    <span class="btn-primary">Choose File</span>
+                </label>
+                <input type="file" id="fileInput" accept=".txt,.pdf,.doc,.docx,image/*" hidden>
+                <p class="file-info">Supported formats: TXT, PDF, DOC, DOCX, Images</p>
+            </div>
+
+            <div id="fileInfo" class="file-info-display" style="display: none;">
+                <h3>Selected File</h3>
+                <div class="file-details">
+                    <p><strong>Name:</strong> <span id="fileName"></span></p>
+                    <p><strong>Size:</strong> <span id="fileSize"></span></p>
+                    <p><strong>Type:</strong> <span id="fileType"></span></p>
+                </div>
+                <button class="btn-secondary" id="analyzeBtn">Analyze Document</button>
+                <button class="btn-danger" id="clearBtn">Clear</button>
+            </div>
+        </section>
+
+        <!-- Analysis Results Section -->
+        <section id="resultsSection" class="results-section" style="display: none;">
+            <h2>Analysis Results</h2>
+
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3>Word Count</h3>
+                        <p class="stat-value" id="wordCount">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🔤</div>
+                    <div class="stat-content">
+                        <h3>Characters</h3>
+                        <p class="stat-value" id="charCount">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-content">
+                        <h3>Sentences</h3>
+                        <p class="stat-value" id="sentenceCount">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+                    <div class="stat-content">
+                        <h3>Paragraphs</h3>
+                        <p class="stat-value" id="paragraphCount">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Analysis -->
+            <div class="analysis-details">
+                <div class="analysis-card">
+                    <h3>Reading Time</h3>
+                    <p class="analysis-value" id="readingTime">0 minutes</p>
+                </div>
+
+                <div class="analysis-card">
+                    <h3>Average Word Length</h3>
+                    <p class="analysis-value" id="avgWordLength">0 characters</p>
+                </div>
+
+                <div class="analysis-card">
+                    <h3>Longest Word</h3>
+                    <p class="analysis-value" id="longestWord">-</p>
+                </div>
+            </div>
+
+            <!-- Top Keywords -->
+            <div class="keywords-section">
+                <h3>Top Keywords</h3>
+                <div id="keywordsList" class="keywords-list"></div>
+            </div>
+
+            <!-- Document Preview -->
+            <div class="preview-section">
+                <h3>Document Preview</h3>
+                <div id="documentPreview" class="preview-content"></div>
+            </div>
+
+            <!-- Export Options -->
+            <div class="export-section">
+                <h3>Export Analysis</h3>
+                <button class="btn-primary" id="exportJsonBtn">Export as JSON</button>
+                <button class="btn-primary" id="exportCsvBtn">Export as CSV</button>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing document...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Document Analysis Tool | Built with HTML5, CSS3 & JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
